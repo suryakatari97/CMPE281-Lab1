@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Login</title>
+</head>
+<body>
+    <div id="divid" style="padding-left: 100px; padding-right: 100px">
+        <p>Please Login to continue</p>
+        <form action="verify.html" id="login" class="form-group">
+            <label>Enter Email:</label>
+            <input type="email" autofocus class="form-control" name="emailid" placeholder="enter Email-id here: " required><br>
+            <label>Enter password:</label>
+            <input type="password" class="form-control" name="pass" pattern=".{6,15}" placeholder="enter password here: " required><br>
+        </form>
+        <button class="btn btn-primary" onclick="verify()">Submit</button><br><br>
+        <p>New here? <a href="index.html">register now</a> </p>
+        <p id = "verified"></p>
+        <script>
+            function verify() {
+                var uname = document.getElementById("login").elements.namedItem("emailid").value;;
+                var pass = document.getElementById("login").elements.namedItem("pass").value;
+
+                email = localStorage.getItem("email");
+                password = localStorage.getItem("password");
+
+                if (email == uname && password == pass) {
+                    document.getElementById("verified").innerHTML = "Congractulations! now you are part of our community. Thank you for being part of this adventure";
+                }
+                else {
+                    document.getElementById("verified").innerHTML = "enter correct credentials";
+                }
+            }
+        </script>
+    </div>
+</body>
+</html>
